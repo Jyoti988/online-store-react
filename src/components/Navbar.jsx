@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 const MyNavbar = () => {
-  
   useEffect(() => {
     // Adding font size to the body
     document.body.style.fontSize = "18px";
@@ -16,7 +16,6 @@ const MyNavbar = () => {
       document.body.style.fontSize = "";
     };
   }, []);
-
 
   return (
     <>
@@ -34,16 +33,19 @@ const MyNavbar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
+            {/* Navigation links */}
             <Nav
               className="ms-auto my-2 my-lg-0"
-              style={{ maxHeight: '80px' }}
+              style={{ maxHeight: "80px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/services">Services</Nav.Link>
-              <Nav.Link href="/contact">Contact</Nav.Link>
+              <Nav.Link as={Link} to="/" className="text-white">Home</Nav.Link>
+              <Nav.Link as={Link} to="/about" className="text-white">About</Nav.Link>
+              <Nav.Link as={Link} to="/services" className="text-white">Services</Nav.Link>
+              <Nav.Link as={Link} to="/contact" className="text-white">Contact</Nav.Link>
             </Nav>
+
+            {/* Search Form */}
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -51,7 +53,7 @@ const MyNavbar = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-light">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

@@ -25,7 +25,6 @@ function App() {
             <>
             <Header/>
               <MyNavbar />
-              <Index/>
 
               <Routes>
                 <Route path="/" element={<Index />} />
